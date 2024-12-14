@@ -136,7 +136,7 @@ def get_sunrise_sunset(location):
     
     current_time = datetime.now().time()
     next_hour_time = (datetime.combine(datetime.today(), current_time) + timedelta(hours=1)).time()
-    hours_before_sunset = (datetime.combine(datetime.today(), sunset) - timedelta(hours=3)).time()
+    hours_before_sunset = (datetime.combine(datetime.today(), sunset) - timedelta(hours=2)).time()
 
     if sunrise <= next_hour_time <= hours_before_sunset:
         weather = weather+rounded
