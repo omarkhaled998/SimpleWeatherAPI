@@ -58,7 +58,7 @@ def predict_weather(location):
         current_hour = int(datetime.now().strftime('%H'))
         
         # Fetch historical data for the past few days
-        for i in range(1, 9):
+        for i in range(1, 5):
             date = (datetime.now() - timedelta(days=i)).strftime('%Y-%m-%d')
             history_url = f'http://api.weatherapi.com/v1/history.json?key={OPENWEATHER_API_KEY}&q={location}&dt={date}'
             history_response = requests.get(history_url)
@@ -118,9 +118,10 @@ def get_sunrise_sunset(location):
     sunset = datetime.strptime(forecast['astro']['sunset'], '%I:%M %p').time()
     
     current_time = datetime.now().time()
+    next_hour_time = (datetime.combine(datetime.today(), current_time) + timedelta(hours=1)).time()
     hours_before_sunset = (datetime.combine(datetime.today(), sunset) - timedelta(hours=3)).time()
 
-    if sunrise <= current_time <= hours_before_sunset:
+    if sunrise <= next_hour_time <= hours_before_sunset:
         weather = weather+0.5
     else:
         weather = weather-0.5

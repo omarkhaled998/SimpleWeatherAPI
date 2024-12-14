@@ -69,7 +69,7 @@ const WeatherDashboard = () => {
     setLocation('');
     setWeatherData(null);
     setPredictionSimple(null);
-    predictionComplex(null);
+    setPredictionComplex(null);
   };
 
   return (
