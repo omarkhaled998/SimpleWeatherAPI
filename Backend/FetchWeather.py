@@ -116,15 +116,32 @@ def get_sunrise_sunset(location):
     forecast = data['forecast']['forecastday'][0]
     sunrise = datetime.strptime(forecast['astro']['sunrise'], '%I:%M %p').time()
     sunset = datetime.strptime(forecast['astro']['sunset'], '%I:%M %p').time()
+
+    # Combine today's date with the time for calculation
+    today_date = datetime.today().date()
+    sunrise_datetime = datetime.combine(today_date, sunrise)
+    sunset_datetime = datetime.combine(today_date, sunset)
+
+    # Calculate the difference
+    time_difference = sunset_datetime - sunrise_datetime
+
+    # Convert the difference to hours and minutes
+    hours, remainder = divmod(time_difference.seconds, 3600)
+
+    max_Temp = forecast['day']['maxtemp_c']
+    min_Temp = forecast['day']['mintemp_c']
+
+    delta = (max_Temp-min_Temp)/(hours-3)
+    rounded = round(delta,1)
     
     current_time = datetime.now().time()
     next_hour_time = (datetime.combine(datetime.today(), current_time) + timedelta(hours=1)).time()
     hours_before_sunset = (datetime.combine(datetime.today(), sunset) - timedelta(hours=3)).time()
 
     if sunrise <= next_hour_time <= hours_before_sunset:
-        weather = weather+0.5
+        weather = weather+rounded
     else:
-        weather = weather-0.5
+        weather = weather-rounded
     
     return jsonify({
         'predicted_temp': weather
