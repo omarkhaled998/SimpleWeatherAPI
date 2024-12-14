@@ -78,7 +78,6 @@ def predict_weather(location):
 
         # Save historical data to CSV
         df = pd.DataFrame(history_data)
-        df.to_csv('weather_data.csv', index=False)
 
         # Train the model with historical data
         X = df[['temp_c', 'humidity', 'wind_kph']]
@@ -101,9 +100,6 @@ def predict_weather(location):
         return jsonify({'predicted_temp': predicted_temp[0]})
     except requests.exceptions.RequestException as e:
         return jsonify({'error': str(e)}), 500
-
-
-
 
 @app.route('/sunrise-sunset/<location>', methods=['GET'])
 def get_sunrise_sunset(location):
