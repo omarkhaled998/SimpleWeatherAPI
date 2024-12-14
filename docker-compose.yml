@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build:
+      context: ./FrontEnd
+      dockerfile: DockerFile.FrontEnd
+    volumes:
+      - ./FrontEnd:/app
+    ports:
+      - "80:80"
+
+  backend:
+    build:
+      context: ./BackEnd
+      dockerfile: DockerFile.Backend
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_APP: FetchWeather.py

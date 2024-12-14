@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Docker
+*.swp
+.dockerignore
+
+# Node.js
+node_modules/
+
+# OS-specific
+.DS_Store
+Thumbs.db

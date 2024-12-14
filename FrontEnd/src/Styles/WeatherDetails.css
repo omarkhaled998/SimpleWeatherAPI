@@ -1,0 +1,21 @@
+.weather-details {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.weather-details h2 {
+margin-bottom: 10px;
+}
+
+.weather-details p {
+margin: 5px 0;
+}
+
+.weather-icon {
+margin-top: 10px;
+}
+  

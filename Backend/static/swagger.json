@@ -1,0 +1,96 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Weather API",
+      "description": "API for fetching weather data",
+      "version": "1.0.0"
+    },
+    "host": "localhost:5000",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/weather/{location}": {
+        "get": {
+          "summary": "Get weather data",
+          "description": "Fetches weather data for a given location",
+          "parameters": [
+            {
+              "name": "location",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "openweather": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/predict-weather/{location}": {
+        "get": {
+          "summary": "Predict next hour weather",
+          "description": "Predict next hour weather using the last 7 days data",
+          "parameters": [
+            {
+              "name": "location",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "openweather": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/sunrise-sunset/{location}": {
+        "get": {
+          "summary": "Predict next hour weather simple method",
+          "description": "Predict next hour weather using sunrise and sunset time",
+          "parameters": [
+            {
+              "name": "location",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "openweather": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

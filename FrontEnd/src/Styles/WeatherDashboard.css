@@ -1,0 +1,19 @@
+.weather-dashboard {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+.change-location-button {
+margin-top: 20px;
+padding: 10px 20px;
+font-size: 16px;
+background-color: #ff6f61;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.change-location-button:hover {
+background-color: #ff4d4d;
+}
